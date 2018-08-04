@@ -69,7 +69,7 @@ public func defaultLoggedTextWithTimestampAndThread(for record: LogRecord) -> St
 
 public func defaultLoggedTextWithThread(for record: LogRecord) -> String {
 	let text = defaultLoggedText(for: record)
-	let threadDescription = Thread.isMainThread ? "-" : "\(DispatchQueue.global().label)"
+    let threadDescription = Thread.isMainThread ? "-" : (DispatchQueue.currentQueueLabel ?? "unknown")
 	let textWithThread = "\(locationPrefix)[\(threadDescription)] \(text)"
 	return textWithThread
 }
