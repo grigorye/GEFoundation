@@ -3,3 +3,4 @@ source "https://rubygems.org"
 
 gem "cocoapods", :git => 'https://github.com/CocoaPods/CocoaPods', :tag => '1.6.0.beta.1'
 gem "xcpretty"
+gem "cocoapods-generate", "~> 1.3"
