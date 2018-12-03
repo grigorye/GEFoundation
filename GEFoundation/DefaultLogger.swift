@@ -7,7 +7,7 @@
 //
 
 import struct GETracing.LogRecord
-import func GETracing.defaultLoggedText
+import func GETracing.loggedText
 import Foundation
 import os
 
@@ -45,7 +45,7 @@ public func defaultLogger(record: LogRecord) {
 	switch DefaultLogKind(rawValue: defaultLogKind)! {
 	case .none: ()
 	case .oslog:
-		let text = defaultLoggedText(for: record)
+		let text = loggedText(for: record)
 		if #available(iOS 10.0, macOS 10.12, *), let location = record.location, case .dso(let dso) = location.moduleReference {
 			let bundle = Bundle(for: dso)!
 			rdar_os_log_object_with_type(dso, bundle.log, .default, text as NSString)
@@ -53,10 +53,10 @@ public func defaultLogger(record: LogRecord) {
 			fallthrough
 		}
 	case .nslog:
-		let text = defaultLoggedText(for: record)
+		let text = loggedText(for: record)
 		NSLog("%@", text)
 	case .print:
-		let text = defaultLoggedText(for: record, timestampEnabled: defaults.defaultLogPrintTimestamps)
+		let text = loggedText(for: record, timestampEnabled: defaults.defaultLogPrintTimestamps)
 		print(text)
 	}
 }
