@@ -1,0 +1,16 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "GETracing",
+        "repositoryURL": "https://github.com/grigorye/GETracing",
+        "state": {
+          "branch": "master",
+          "revision": "6e33f1bad9767182f860512c3014173aedf68211",
+          "version": null
+        }
+      }
+    ]
+  },
+  "version": 1
+}
